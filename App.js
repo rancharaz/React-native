@@ -4,27 +4,20 @@ import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
 const LotsOfStyles = () => {
 
   const [name, setName] = useState('shawn');
-  const [person, setPerson] = useState({
-    name: 'David',
-    age: 50
-  })
-  const pressHandler = () => {
-    setName('Paul');
-    setPerson({
-      name: 'John',
-      age: 60
-    })
-  }
+  const [age, setAge] = useState(40)
 
   return (
     <View style={styles.container}>
       <Text style={styles.boldText}>{name}</Text>
-      <Text style={styles.secondText}> {person.age}</Text>
+      <Text style={styles.secondText}> {age}</Text>
       <View style={styles.buttonContainer}>
-        <Button title="Press me" onPress={pressHandler} />
+
 
       </View>
-      <TextInput style={styles.input} placeholder="Name" />
+      <TextInput style={styles.input} placeholder="Name" onChangeText={(val) => setName(val)} />
+      <TextInput style={styles.input} placeholder="Age" onChangeText={(val) => setAge(val)} />
+
+      <Text>Name: {name} age: {age}</Text>
     </View>
   );
 };
